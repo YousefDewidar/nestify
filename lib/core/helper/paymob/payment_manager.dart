@@ -9,7 +9,7 @@ class PaymentManager {
   }) async {
     try {
       String mainToken = await getMainToken();
-      String url = await getUrlLink(mainToken, price);
+      String url = await getUrlLink(mainToken, '${price}00');
       return url;
     } catch (e) {
       return '';

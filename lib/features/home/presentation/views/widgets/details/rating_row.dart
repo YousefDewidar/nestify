@@ -7,7 +7,7 @@ import 'package:nestify/features/home/data/model/house_model.dart';
 import 'package:nestify/features/home/presentation/views/widgets/details/custom_rating_dialog.dart';
 import 'package:nestify/features/home/presentation/views/widgets/details/num_bed_card.dart';
 
-class RatingRow extends StatelessWidget {
+class RatingRow extends StatefulWidget {
   const RatingRow({
     super.key,
     required this.house,
@@ -16,14 +16,21 @@ class RatingRow extends StatelessWidget {
   final HouseModel house;
 
   @override
+  State<RatingRow> createState() => _RatingRowState();
+}
+
+class _RatingRowState extends State<RatingRow> {
+  int numOfReview = 0;
+  @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20.0),
       child: Row(
         children: [
-          NumBedsCard(numers: '${house.bd}bd', icon: Icons.bed_outlined),
+          NumBedsCard(numers: '${widget.house.bd}bd', icon: Icons.bed_outlined),
           const SpaceH(15),
-          NumBedsCard(numers: '${house.ba}ba', icon: Icons.bathtub_outlined),
+          NumBedsCard(
+              numers: '${widget.house.ba}ba', icon: Icons.bathtub_outlined),
           const SpaceH(25),
           const SizedBox(
             height: 70,
@@ -36,10 +43,11 @@ class RatingRow extends StatelessWidget {
               Text('Ratings', style: Styles.style16),
               GestureDetector(
                 onTap: () {
+
                   showDialog(
                     context: context,
                     builder: (context) {
-                      return const CustomRatingDialog();
+                      return  const CustomRatingDialog();
                     },
                   );
                 },
@@ -57,8 +65,8 @@ class RatingRow extends StatelessWidget {
                           )),
                 ),
               ),
-              const Text('reviews',
-                  style: TextStyle(
+              Text('$numOfReview' ' reviews',
+                  style: const TextStyle(
                       color: AppColor.primaryColor,
                       decoration: TextDecoration.underline))
             ],

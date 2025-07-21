@@ -122,7 +122,7 @@ class _SignupFormState extends State<SignupForm> {
     if (formKey.currentState!.validate()) {
       try {
         await registerMethod(emailCon, passwordCon);
-        ErrorHandle.showSnackBar(context, 'Created done');
+        ErrorHandle.awesomeDialog(context, 'Created done');
         await createUser();
         BlocProvider.of<NavigateCubit>(context).setUserInfo();
         Future.delayed(const Duration(seconds: 1), () {
