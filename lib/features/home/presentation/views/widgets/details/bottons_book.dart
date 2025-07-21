@@ -57,13 +57,13 @@ class _ButtonsBookState extends State<ButtonsBook> {
     final DateTime? datePicked = await showDatePicker(
       context: context,
       initialDate: selectedDate ?? DateTime.now(),
-      firstDate: DateTime(2024),
-      lastDate: DateTime(2025),
+      firstDate: DateTime(2025),
+      lastDate: DateTime(2026),
     );
 
     if (datePicked != null && datePicked != DateTime.now()) {
-      String clientUrl =
-          await PaymentManager().payWithPayMob(price: widget.house.price);
+      String clientUrl = await PaymentManager().payWithPayMob(
+          price: (num.parse(widget.house.price) * 100).toString(),);
 
       setState(() {
         selectedDate = datePicked;

@@ -17,9 +17,6 @@ class CustomSearchBar extends StatelessWidget {
         onChanged: (searchedChar) {
           BlocProvider.of<HomeCubit>(context).setSearchedList(searchedChar);
         },
-        // onTapOutside: (event) {
-        //   BlocProvider.of<HomeCubit>(context).favListAfterSearch = [];
-        // },
         decoration: decorationOfSearchBar(),
       ),
     );

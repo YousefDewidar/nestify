@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:dio/dio.dart';
 import 'package:nestify/core/helper/paymob/constant.dart';
 
@@ -14,7 +12,6 @@ class PaymentManager {
       String url = await getUrlLink(mainToken, price);
       return url;
     } catch (e) {
-      log('message');
       return '';
     }
   }

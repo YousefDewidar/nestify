@@ -1,0 +1,2 @@
+Y:/Flutter projects/nestify/android/app/.cxx/Debug/3o4m10ne/x86_64/CMakeFiles/edit_cache.dir
+Y:/Flutter projects/nestify/android/app/.cxx/Debug/3o4m10ne/x86_64/CMakeFiles/rebuild_cache.dir

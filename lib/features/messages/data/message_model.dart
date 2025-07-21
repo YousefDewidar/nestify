@@ -15,3 +15,4 @@ class MessageModel {
         senderName: json['user_id']);
   }
 }
+
